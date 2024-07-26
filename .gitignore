@@ -1,9 +1,0 @@
-/vendor/
-
-/.env
-
-*.log
-*.tmp
-*.swp
-
-phpunit.result.cache
