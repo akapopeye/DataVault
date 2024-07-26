@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,42 +14,59 @@
         header {
             background-color: #333;
             color: #fff;
-            padding: 10px 0;
+            padding: 15px 0;
             text-align: center;
         }
         main {
             padding: 20px;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
         }
         form {
-            margin-bottom: 20px;
+            margin-top: 10px;
         }
         label {
             display: block;
             margin-bottom: 8px;
+            font-weight: bold;
         }
         input[type="text"], input[type="email"] {
             width: calc(100% - 22px);
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 16px;
         }
         button {
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: none;
             border-radius: 4px;
             color: #fff;
-            background-color: #28a745;
+            background-color: #007bff;
             cursor: pointer;
+            font-size: 16px;
         }
         button:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             background-color: #333;
             color: #fff;
             position: fixed;
@@ -57,55 +74,68 @@
             bottom: 0;
         }
         .warning {
-            color: red;
+            color: #dc3545;
             margin-top: 10px;
+            font-size: 14px;
+        }
+        .info {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .info p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Outil Multi-Fonction</h1>
+        <h1>DataVault</h1>
     </header>
     <main>
         <section>
-            <h2>Recherche d'IP</h2>
+            <h2>IP Lookup</h2>
+            <p>Enter an IP address to retrieve detailed information such as geographic location, ISP, and other network details.</p>
             <form action="process_ip_lookup.php" method="post">
-                <label for="ip">Entrez l'adresse IP :</label>
-                <input type="text" id="ip" name="ip" required>
-                <button type="submit">Rechercher</button>
+                <label for="ip">IP Address:</label>
+                <input type="text" id="ip" name="ip" placeholder="E.g., 192.168.1.1" required>
+                <button type="submit">Lookup</button>
             </form>
         </section>
 
         <section>
-            <h2>Recherche de Téléphone</h2>
+            <h2>Phone Number Lookup</h2>
+            <p>Enter a phone number to check associated information such as the owner’s name and location.</p>
             <form action="process_phone_lookup.php" method="post">
-                <label for="phone">Entrez le numéro de téléphone :</label>
-                <input type="text" id="phone" name="phone" required>
-                <button type="submit">Rechercher</button>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" placeholder="E.g., +1 234 567 890" required>
+                <button type="submit">Lookup</button>
             </form>
         </section>
 
         <section>
-            <h2>Recherche d'Email</h2>
+            <h2>Email Lookup</h2>
+            <p>Enter an email address to verify its domain, validity, and obtain additional information about the address.</p>
             <form action="process_email_lookup.php" method="post">
-                <label for="email">Entrez l'adresse email :</label>
-                <input type="email" id="email" name="email" required>
-                <button type="submit">Rechercher</button>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="E.g., example@example.com" required>
+                <button type="submit">Lookup</button>
             </form>
         </section>
 
         <section>
-            <h2>Attaque DDoS</h2>
+            <h2>DDoS Attack</h2>
+            <p>Enter the target IP address to launch a DDoS attack. <strong>Note: This feature may be illegal and ethically problematic. Use it only in a controlled environment and with explicit permission from the server owner.</strong></p>
             <form action="process_ddos_attack.php" method="post">
-                <label for="ddos-ip">Entrez l'adresse IP cible :</label>
-                <input type="text" id="ddos-ip" name="ddos-ip" required>
-                <button type="submit">Lancer l'attaque</button>
+                <label for="ddos-ip">Target IP Address:</label>
+                <input type="text" id="ddos-ip" name="ddos-ip" placeholder="E.g., 192.168.1.1" required>
+                <button type="submit">Launch Attack</button>
             </form>
-            <p class="warning">Avertissement : L'utilisation de cette fonctionnalité peut être illégale et éthiquement problématique. Utilisez-la uniquement dans un environnement contrôlé et avec la permission nécessaire.</p>
+            <p class="warning">Warning: Using this feature is illegal in many countries and can lead to criminal charges. Use it at your own risk.</p>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Outil Multi-Fonction</p>
+        <p>&copy; 2024 DataVault - All Rights Reserved</p>
     </footer>
 </body>
 </html>
