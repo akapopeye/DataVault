@@ -19,7 +19,7 @@ Welcome to the multi-tool. This website provides several online tools to perform
 ## Instructions
 
 1. **Installation**
-   - Clonez le dépôt : `git clone <URL_DU_DEPOT>`
+   - Clonez le dépôt : `https://akapopeye.github.io/DataVault/`
 
 2. **Use**
    - Use the forms to enter the required information for each feature.
