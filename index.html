@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataVault</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"], input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #28a745;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .warning {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Outil Multi-Fonction</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Recherche d'IP</h2>
+            <form action="process_ip_lookup.php" method="post">
+                <label for="ip">Entrez l'adresse IP :</label>
+                <input type="text" id="ip" name="ip" required>
+                <button type="submit">Rechercher</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Recherche de Téléphone</h2>
+            <form action="process_phone_lookup.php" method="post">
+                <label for="phone">Entrez le numéro de téléphone :</label>
+                <input type="text" id="phone" name="phone" required>
+                <button type="submit">Rechercher</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Recherche d'Email</h2>
+            <form action="process_email_lookup.php" method="post">
+                <label for="email">Entrez l'adresse email :</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Rechercher</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Attaque DDoS</h2>
+            <form action="process_ddos_attack.php" method="post">
+                <label for="ddos-ip">Entrez l'adresse IP cible :</label>
+                <input type="text" id="ddos-ip" name="ddos-ip" required>
+                <button type="submit">Lancer l'attaque</button>
+            </form>
+            <p class="warning">Avertissement : L'utilisation de cette fonctionnalité peut être illégale et éthiquement problématique. Utilisez-la uniquement dans un environnement contrôlé et avec la permission nécessaire.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Outil Multi-Fonction</p>
+    </footer>
+</body>
+</html>
