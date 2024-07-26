@@ -25,7 +25,26 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .button-container button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #007bff;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
         section {
+            display: none; /* Hidden by default */
             margin-bottom: 20px;
             padding: 15px;
             border: 1px solid #ddd;
@@ -44,7 +63,7 @@
             margin-bottom: 8px;
             font-weight: bold;
         }
-        input[type="text"], input[type="email"] {
+        input[type="text"], input[type="email"], textarea {
             width: calc(100% - 22px);
             padding: 12px;
             margin-bottom: 10px;
@@ -52,7 +71,7 @@
             border-radius: 4px;
             font-size: 16px;
         }
-        button {
+        button[type="submit"] {
             padding: 12px 25px;
             border: none;
             border-radius: 4px;
@@ -61,7 +80,7 @@
             cursor: pointer;
             font-size: 16px;
         }
-        button:hover {
+        button[type="submit"]:hover {
             background-color: #0056b3;
         }
         footer {
@@ -73,56 +92,102 @@
             width: 100%;
             bottom: 0;
         }
-        .warning {
-            color: #dc3545;
-            margin-top: 10px;
-            font-size: 14px;
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
-        .info {
-            color: #6c757d;
-            font-size: 14px;
-            margin-top: 10px;
+        .info-message {
+            background-color: #d4edda;
+            color: #155724;
         }
-        .info p {
-            margin: 0;
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
         }
     </style>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('main section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function handleFormSubmission(event, messageType) {
+            event.preventDefault();
+            const messageElement = document.getElementById('message');
+            const formData = new FormData(event.target);
+            let messageText = '';
+
+            switch (messageType) {
+                case 'ip':
+                    messageText = `IP Lookup performed for ${formData.get('ip')}.`;
+                    break;
+                case 'phone':
+                    messageText = `Phone Lookup performed for ${formData.get('phone')}.`;
+                    break;
+                case 'email':
+                    messageText = `Email sent to ${formData.get('to-email')}.`;
+                    break;
+                default:
+                    messageText = 'Action performed.';
+            }
+
+            messageElement.textContent = messageText;
+            messageElement.className = 'message info-message';
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>DataVault</h1>
     </header>
     <main>
-        <section>
+        <div class="button-container">
+            <button onclick="showSection('ip-info')">IP Info</button>
+            <button onclick="showSection('phone-info')">Phone Info</button>
+            <button onclick="showSection('email-sender')">Email Sender</button>
+        </div>
+        
+        <section id="ip-info">
             <h2>IP Lookup</h2>
             <p>Enter an IP address to retrieve detailed information such as geographic location, ISP, and other network details.</p>
-            <form action="process_ip_lookup.php" method="post">
+            <form onsubmit="handleFormSubmission(event, 'ip')">
                 <label for="ip">IP Address:</label>
                 <input type="text" id="ip" name="ip" placeholder="E.g., 192.168.1.1" required>
                 <button type="submit">Lookup</button>
             </form>
         </section>
 
-        <section>
+        <section id="phone-info">
             <h2>Phone Number Lookup</h2>
             <p>Enter a phone number to check associated information such as the owner’s name and location.</p>
-            <form action="process_phone_lookup.php" method="post">
+            <form onsubmit="handleFormSubmission(event, 'phone')">
                 <label for="phone">Phone Number:</label>
                 <input type="text" id="phone" name="phone" placeholder="E.g., +1 234 567 890" required>
                 <button type="submit">Lookup</button>
             </form>
         </section>
         
-        <section>
-            <h2>DDoS Attack</h2>
-            <p>Enter the target IP address to launch a DDoS attack. <strong>Note: This feature may be illegal and ethically problematic. Use it only in a controlled environment and with explicit permission from the server owner.</strong></p>
-            <form action="process_ddos_attack.php" method="post">
-                <label for="ddos-ip">Target IP Address:</label>
-                <input type="text" id="ddos-ip" name="ddos-ip" placeholder="E.g., 192.168.1.1" required>
-                <button type="submit">Launch Attack</button>
+        <section id="email-sender">
+            <h2>Send Email</h2>
+            <p>Enter the recipient's email address and message to send an email from your address.</p>
+            <form onsubmit="handleFormSubmission(event, 'email')">
+                <label for="from-email">From Email Address:</label>
+                <input type="email" id="from-email" name="from-email" placeholder="E.g., you@example.com" required>
+                <label for="to-email">To Email Address:</label>
+                <input type="email" id="to-email" name="to-email" placeholder="E.g., recipient@example.com" required>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" placeholder="Email Subject" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+                <button type="submit">Send Email</button>
             </form>
-            <p class="warning">Warning: Using this feature is illegal in many countries and can lead to criminal charges. Use it at your own risk.</p>
         </section>
+
+        <div id="message" class="message"></div>
     </main>
     <footer>
         <p>&copy; 2024 DataVault - All Rights Reserved</p>
