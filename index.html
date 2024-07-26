@@ -176,7 +176,6 @@
                         valid = false;
                     }
                     break;
-                // Add more cases as needed
             }
 
             if (!valid) {
@@ -187,33 +186,16 @@
             return valid;
         }
 
-        function handleFormSubmission(event, messageType) {
+        function handleFormSubmission(event, type) {
             event.preventDefault();
-            const formData = new FormData(event.target);
+            const form = event.target;
+            const formData = new FormData(form);
 
-            if (!validateForm(formData, messageType)) {
-                return;
+            if (validateForm(formData, type)) {
+                document.getElementById('message').textContent = 'Form submitted successfully.';
+                document.getElementById('message').className = 'message info-message';
+                form.reset();
             }
-
-            let messageText = '';
-
-            switch (messageType) {
-                case 'ip':
-                    messageText = `IP Lookup performed for ${formData.get('ip')}.`;
-                    break;
-                case 'phone':
-                    messageText = `Phone Lookup performed for ${formData.get('phone')}.`;
-                    break;
-                case 'email':
-                    messageText = `Email sent to ${formData.get('to-email')}.`;
-                    break;
-                default:
-                    messageText = 'Action performed.';
-            }
-
-            const messageElement = document.getElementById('message');
-            messageElement.textContent = messageText;
-            messageElement.className = 'message info-message';
         }
     </script>
 </body>
