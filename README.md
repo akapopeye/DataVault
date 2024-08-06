@@ -1,6 +1,6 @@
 # FTSyxcal Menu
 
-FTSyxcal Menu is a web page dedicated to managing mod menus for games. This page allows users to download menus, explore available features, and purchase paid menus.
+FTSyxcal Menu is a web page dedicated to managing mod menus for games. This page allows users to download menus and explore available features.
 
 ### Sections
 
