@@ -1,35 +1,24 @@
-# Data Vault
+# FTSyxcal Menu
 
-Welcome to the multi-tool. This website provides several online tools to perform various tasks:
+FTSyxcal Menu is a web page dedicated to managing mod menus for games. This page allows users to download menus, explore available features, and purchase paid menus.
 
-## Features
+### Sections
 
-1. **IP Search**
-   - Allows you to get information about a provided IP address.
+1. **Header**
+   - Page Title: "FTSyxcal Menu"
+   - Main download button
+   - Dropdown menus for "Holdables" and "Watch Menus"
 
-2. **Phone Search**
-   - Allows you to get information about a provided phone number.
+2. **Navigation**
+   - Tabs: "Download", "About Us", and "Credits"
 
-3. **Email Search**
-   - Allows you to obtain information about a provided email address.
+3. **Download Section**
+   - Button to download menus
+   - Dropdown menu to select mod menus
+   - "Features" and "Discord" buttons
 
-4. **Attaque DDoS**
-   - Permet de lancer une attaque DDoS sur une adresse IP (Avertissement : Cette fonctionnalité peut être illégale et éthiquement problématique. Utilisez-la uniquement dans un environnement contrôlé et avec la permission nécessaire).
+4. **About Us Section**
+   - Description of the team and objectives
 
-## Instructions
-
-1. **Installation**
-   - Clonez le dépôt : `https://akapopeye.github.io/DataVault/`
-
-2. **Use**
-   - Use the forms to enter the required information for each feature.
-   - For DDoS functionality, a warning reminds you of the legal implications.
-
-## Important Notes
-- Legality and Ethics :** The use of certain features may be illegal and ethically problematic. Make sure you follow local laws and obtain the necessary permissions.
-- **Data Protection:** When processing personal information, please ensure that you comply with data protection laws.
-- **Security:** Make sure to secure your site from abuse and unauthorized access.
-
-## License
-
-This project is licensed under the GPL-3.0 license - see the [LICENSE](LICENSE) file for details.
+5. **Credits Section**
+   - Acknowledgements to contributors and third-party resources
